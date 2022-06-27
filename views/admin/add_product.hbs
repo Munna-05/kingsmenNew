@@ -1,0 +1,103 @@
+<div class="row container-fluid d-flex justify-content-center">
+    <div class="col-4 p-4 rounded ">
+        <form action="/admin/add_product" method="post" enctype="multipart/form-data">
+
+            <label for="" id="labelname" class="my-3 form" style="color: white;">Product Name</label>
+            <input type="text" name="productName" class="form-control" id="nameId" onkeyup="nameval()">
+
+
+
+            <label for="" class="my-3  form" style="color: white;" id="labeldescription">Product Description</label>
+            <input type="text" name="productDescription" class="form-control" id="descriptionId" onkeyup="desVal()">
+
+
+            <label for="" class="my-3  form" style="color: white;">Product Category</label>
+
+            <select name="productCategory" class="rounded m-4" id="cars">
+                <option type="text " class="" value="watches">watches</option>
+                <option value="shoes">shoes</option>
+                <option value="Suits">suits</option>
+                <option value="eyewear">Eyewear</option>
+                <option value="perfumes">perfumes</option>
+            </select><br>
+
+            {{!-- <input type="text" name="productCategory" class="form-control" id="categoryId"
+                onkeyup="categoryVal()"> --}}
+            <label for="" class="my-3  form" style="color: white;">Product Offer</label>
+            <span class="text-light">%</span>
+            <input type="text" name="ProductOffer" class="form-control" id="priceId" onkeyup="price()">
+
+            <label for="" class="my-3  form" style="color: white;">Product Price</label>
+            <input type="text" name="productPrice" class="form-control" id="priceId" onkeyup="price()">
+
+            <label for="image" class="my-3 " style="color: white;">Add image</label>
+            <input type="file" class="form-control " name="image" src="" alt="" value="" placeholder="image" required
+                multiple>
+
+            <div class="container-fluid text-center">
+                <input type="submit" class="btn text-center btn-primary m-4" name="" onclick="return submission()"
+                    id="">
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<script>
+    function nameval() {
+        var name = document.getElementById('nameId').value
+        if (name == "") {
+
+
+            document.getElementById('nameId').style.border = 'solid red 3px'
+            document.getElementById('labelname').innerHTML = 'Enter Product Name'
+            document.getElementById('labelname').style.color = 'red'
+
+
+            return false
+
+        } else {
+            document.getElementById('nameId').style.border = 'solid grey 1px'
+            document.getElementById('labelname').innerHTML = 'Product Name'
+            document.getElementById('labelname').style.color = 'white'
+
+            return true
+
+        }
+
+
+    }
+    function desVal() {
+        var descrip = document.getElementById('descriptionId').value
+        if (descrip == "") {
+            document.getElementById('descriptionId').style.border = 'solid red 3px'
+            document.getElementById('labeldescription').innerHTML = "Enter Description"
+            document.getElementById('labeldescription').style.color = 'red'
+            return false
+
+        } else {
+            document.getElementById('descriptionId').style.border = 'solid grey 1px'
+            document.getElementById('labeldescription').innerHTML = "Product Description"
+            document.getElementById('labeldescription').style.color = 'white'
+            return true
+        }
+    }
+    function categoryVal() {
+        var cat = document.getElementById('categoryId').value
+        if (cat == "") {
+            document.getElementById('categoryId').style.border = "solid red 3px"
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function submission() {
+        if (!nameval() || !desVal() || !categoryVal()) {
+            return false
+        }
+    }
+
+
+</script>

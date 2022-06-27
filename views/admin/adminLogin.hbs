@@ -1,0 +1,109 @@
+<div class="row d-flex justify-content-center container-fluid " style="height: 100vh;background: #121212;">
+  <div class="col-4  p-3">
+    <!-- Pills navs -->
+    <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link " id="tab-login" data-mdb-toggle="pill" href="#" role="tab" aria-controls="pills-login"
+          style="color: gold;" aria-selected="true">Admin Login</a>
+      </li>
+      {{!-- <li class="nav-item" role="presentation">
+        <a class="nav-link " id="tab-register" data-mdb-toggle="pill" href="/signup" role="tab"
+          aria-controls="pills-register" style="color: gold;" aria-selected="false">Register</a>
+      </li> --}}
+    </ul>
+    <!-- Pills navs -->
+
+    <!-- Pills content -->
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+
+
+
+        {{!-- ...............................................................................................form --}}
+        <form action="/admin/admin" method="post" class=" px-5 py-3" style="
+    border-radius: 52px;
+background: #121212;
+box-shadow:  -11px -11px 22px #080808,
+             11px 11px 22px #1c1c1c;">
+
+          <!-- Email input -->
+          <div class="form-outline mb-4 mt-5">
+            <input type="text" id="login-user" name="user" onkeyup="emailval()" class="form-control"
+              style="background: none;color: gold;border: solid gold 1px;" />
+            <label class="form-label " id="email-label" style="color: gold;" for="loginName">Admin Username</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="login-password" onkeyup="password()" name="password"
+              style="background: none;color: gold;border: solid gold 1px;" class="form-control" />
+            <label class="form-label" id="label-pass" style="color: gold;" for="loginPassword">Password</label>
+          </div>
+
+          <div class="container-fluid text-center">
+            {{#if error}}
+            <span class="alert mb-3 " style="color: red; border: red;">{{error}}</span>
+            {{/if}}
+          </div>
+
+          <!-- 2 column grid layout -->
+          <div class="row mt-3 mb-4">
+            <div class="col-md-6 d-flex justify-content-start">
+              <!-- Simple link -->
+              <a href="#!" style="color: gold;">Forgot password?</a>
+            </div>
+            <!-- Checkbox -->
+            {{!-- <div class="form-check mb-3 mb-md-0">
+              <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+              <label class="form-check-label" for="loginCheck"> Remember me </label>
+            </div> --}}
+          </div>
+
+
+
+          <!-- Submit button -->
+          <div class="container justify-content-center d-flex">
+            <button type="submit container" onclick="return validate()" class="mb-4 p-2" style="border: solid gold 1px ;background: none ; color: gold;width: 8vw ;height: 6vh ;
+          border-radius: 2rem;
+          ">Sign in</button>
+
+        </form>
+      </div>
+
+      <script>
+        function emailval() {
+          var email = document.getElementById("login-user").value
+          if (email == '' || email == null) {
+            document.getElementById('login-user').style.border = 'solid red 3px'
+            document.getElementById('email-label').innerHTML = 'Invalid User'
+            document.getElementById('email-label').style.color = 'red'
+            return false
+          } else {
+            document.getElementById('login-user').style.border = 'solid gold 1px'
+            document.getElementById('email-label').innerHTML = 'Admin Username'
+            document.getElementById('email-label').style.color = 'Gold'
+            return true
+          }
+        }
+        function password() {
+          var pass = document.getElementById("login-password").value
+          if (pass == "" || pass == null) {
+            document.getElementById("login-password").style.border = "solid red 3px"
+            document.getElementById("label-pass").style.color = 'red'
+            document.getElementById("label-pass").innerHTML = 'Wrong password'
+            return false
+          } else {
+            document.getElementById("login-password").style.border = "solid gold 1px"
+            document.getElementById("label-pass").style.color = 'gold'
+            document.getElementById("label-pass").innerHTML = 'password'
+            return true
+          }
+        }
+        function validate() {
+          if (!emailval() || !password()) {
+            return false
+          }
+        }
+
+
+      </script>

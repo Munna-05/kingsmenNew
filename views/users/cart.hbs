@@ -1,0 +1,154 @@
+{{!-- <div class="container-fluid d-flex justify-content-center"><a href="/admin/addUser" class="btn btn-success">Add
+        User</a></div> --}}
+<div class="px-3">
+    <table class="table border-bottom border-warning rounded container-fluid px-3 text-center" style="background: none">
+    <thead>
+        <tr class="text-warning">
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Desription</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            {{!-- <th scope="col">Total Amount</th> --}}
+            <th scope="col">Options</th>
+        </tr>
+    </thead>
+    {{#each cartItems}}
+    <tbody class="text-warning">
+        <tr>
+            <th scope="row" class="">{{inc @index}}</th>
+
+            <td><img src="/uploads/{{this.product.images.[0].filename}}" alt="" class="" style="width: 5em;"></td>
+            <td class="" style="width: 15rem;vertical-align: middle;">{{this.product.productName}}</td>
+
+            <td class=" " style="width: 25rem;vertical-align: middle;font-size: small;">{{this.product.productDescription}}</td>
+
+            <td class="" id="{{this._id}}" style="font-size: 15px;width: 10em; vertical-align: middle;">
+
+                <button class=" btn-warning me-1"
+                    onclick="changeQuantity('{{this._id}}','{{this.product._id}}',1)">+</button>
+                <span id="{{this.product._id}}"> {{this.quantity}} </span>
+                <button class="btn-warning ms-1"
+                    onclick="changeQuantity('{{this._id}}','{{this.product._id}}',-1)">-</button>
+            </td>
+
+            {{!-- <td style="font-size: 15px;width: 10em;">INR total /- </td> --}}
+
+            <td style="font-size: 15px;width: 10em;vertical-align: middle;" id="">INR {{this.product.productPrice}} /- </td>
+
+
+            <td style="vertical-align: middle;"><button type="button" onclick="sweet()" class="btn btn-danger"><a
+                        href="/users/deleteProduct/{{this.product._id}}" class="delete"
+                        style="text-decoration: none;color:black ;" onclick="productadded(event)"> Delete </a></button>
+            </td>
+
+
+
+        </tr>
+        {{!-- {{#if total}}
+        <h1 class="text white"> total : {{total}}</h1>
+        {{/if}} --}}
+
+        {{/each}}
+        </div>
+
+
+    </tbody>
+    {{!-- <div class="container d-flex justify-content-end">
+        {{!-- <span class="text-light">Total:{{total}} </span> --}}
+        {{!-- <span class="h5 text-light" id="total"></span> --}}
+        {{!-- </div> --}}
+</table>
+</div>
+
+<div class="text-light mb-2 text-center container p-0">
+
+    <span class="text-warning"> Total </span>
+    <h1 class="text-center text-warning" id="total">{{total}}</h1>
+
+    </a>
+</div>
+
+
+<div class=" container  mb-5 d-flex justify-content-center p-0">
+    <a href="/users/order" class="btn btn-outline-warning d-flex  " style="text-decoration: none;color:gold ;">Proceed
+        to
+        Checkout</a>
+    <script>
+
+
+        function changeQuantity(cartId, proId, count) {
+        
+            let quantity = parseInt(document.getElementById(proId).innerHTML)
+            console.log(cartId)
+            console.log(proId)
+            console.log(count)
+            $.ajax({
+                url: '/users/change-product-quantity',
+                data: {
+                    cart: cartId,
+                    product: proId,
+                    count: count,
+                    quantity: quantity
+
+                },
+                method: 'POST',
+                success: (response) => {
+                    if (response.removeProduct) {
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You want to Delete!",
+                            icon: 'success',
+                            iconColor: '#bf0f0f',
+                        
+                            confirmButtonColor: '#11ba25',
+                            cancelButtonColor: '#bf0f0f',
+                            confirmButtonText: `Yes`
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                               location.reload()
+                                
+
+                            } else {
+                                return false
+                            }
+                        })
+
+
+                    } else {
+                        document.getElementById(proId).innerHTML = quantity + count
+                        document.getElementById('total').innerHTML = response.total
+                    }
+
+                }
+            })
+        }
+
+        function productadded(event) {
+            var link = event.currentTarget.href;
+
+            event.preventDefault();
+
+
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to Delete!" + " " + name,
+                icon: 'success',
+                iconColor: '#bf0f0f',
+                showCancelButton: true,
+                confirmButtonColor: '#11ba25',
+                cancelButtonColor: '#bf0f0f',
+                confirmButtonText: `Yes`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = link;
+                } else {
+                    return false;
+                }
+            })
+        }
+
+
+    </script>

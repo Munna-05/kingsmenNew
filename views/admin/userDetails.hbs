@@ -1,0 +1,66 @@
+{{!-- <div class="container-fluid d-flex justify-content-center"><a href="/admin/addUser" class="btn btn-success">Add
+    User</a></div> --}}
+<table class="table text-light container border  text-center">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      
+      <th scope="col">Delete User</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  {{#each users}}
+  <tbody>
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.email}}</td>
+      {{!-- <td>{{this.email}}</td> --}}
+    
+      <td>
+        {{!-- <a href="/admin/delete/{{this._id}}" type="submit" onclick="sweet()" class="btn btn-danger">Delete</a>
+        --}}
+
+        <a class="btn btn-danger" onclick="deleteProduct(event)" href="/admin/delete/{{this._id}}">Delete</a>
+
+      </td>
+      {{#if (eq this.blockStatus "Blocked")}}
+
+      <td><a href="/admin/unblock/{{this._id}}" class="btn btn-success mx-3">Unblock</a></td>
+      {{else}}
+      <td><a href="/admin/block/{{this._id}}" class="btn btn-primary mx-3">Block</a></td>
+      {{/if}}
+
+    </tr>
+
+    <script>
+      function deleteProduct(event) {
+        var link = event.currentTarget.href;
+        var name = event.currentTarget.name;
+        event.preventDefault();
+
+
+
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You want to Delete!" + " " + name,
+          icon: 'warning',
+          iconColor: '#bf0f0f',
+          showCancelButton: true,
+          confirmButtonColor: '#11ba25',
+          cancelButtonColor: '#bf0f0f',
+          confirmButtonText: `Yes`
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location = link;
+          } else {
+            return false;
+          }
+        })
+      }
+    </script>
+  </tbody>
+  {{/each}}
+</table>

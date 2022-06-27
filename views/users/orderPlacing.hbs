@@ -1,0 +1,239 @@
+
+<div class="bg-dark pt-5 rounded" style="height: 100vh;">
+    <div class="div  container">
+    {{#if user}}
+
+    <div class="row rounded pb-5" style="border:;border-radius: 26px;
+background: #171717;
+box-shadow:  32px 32px 65px #090909,
+             -32px -32px 65px #252525;">
+        <div class="col-6  pb-3  pt-5 mt-4 ps-5">
+            <form id="checkout">
+                {{!-- <label for="" class="text-light">Name</label><br> --}}
+                {{!-- <input for="" class="p-2 ms-4  text-capitalize my-2 rounded"
+                    style="color: gold;width: 23.5rem;">{{user.name}}</input><br> --}}
+               <div class="border p-1 ps-3 border-warning" style="width: 25vw;" >
+                 <input type="text" name="name" class="p-2 ms-4  text-capitalize my-2 rounded"
+                    style="color: gold;width: 23.5rem;background: none;border: none;" value="{{user.name}}">
+               </div>
+                {{!-- <label for="" class="text-light">E-mail</label><br> --}}
+                {{!-- <inp for="" class="p-2 ms-4 my-2 rounded"
+                    style="color: gold;width: 23.5rem;text-decoration: underline;">{{user.email}}</label><br> --}}
+                    <br><div class="border p-1 ps-3 border-warning" style="width: 25vw;">
+                        <input type="text" name="email" id="" class="p-2  ms-4 my-2 rounded" style="color: gold;width: 23.5rem;text-decoration: underline;
+                border: none;
+                background: none;
+                " value="{{user.email}}">
+                    </div><br>
+                    {{!-- <label for="" class="text-light">Address</label><br>
+                    <input type="text" class="rounded mb-3 p-1" name="address" value="{{this.address}}" name="" id=""
+                        style="height: 4rem;width: 30rem;"><br>
+                    <input type="text" class="rounded mb-3 p-1" name="address2" value="{{this.address2}}" name="" id=""
+                        style="height: 4rem;width: 30rem;"><br> --}}
+
+                    {{!-- <label for="" class="text-light mb-2">Address</label><br> --}}
+                   <div class="border pay p-1 ps-3 border-warning" style="width: 25vw;">
+                     <input type="radio" class="me-3 mt-1" name="address" value="{{user.address}}" id="">
+                    <label for=" " class="text-capitalize p-3 rounded my-2"
+                        style="color: ;width: 23rem;">{{user.address}}</label>
+                   </div><br>
+                    {{!-- <input type="text" class="rounded " style="height: 4rem;width: 30rem;"
+                        value="{{user.address}}">
+                    <br> --}}
+
+
+                    {{!-- <label for="" class="text-light mt-2 mb-2">Second Address</label><br> --}}
+                    <div class="border pay p-1 ps-3 border-warning" style="width: 25vw;">
+                        <input type="radio" class="me-3 text-dark mt-1 " name="address" value="{{user.address2}}" id="">
+                    <label for=" " class="text-capitalize  p-3 my-2 rounded"
+                        style="color: ;width: 23rem;">{{user.address2}}</label>
+                    </div><br>
+                    <div>
+                    <input type="text" class="pay text-center" name="CouponCode" placeholder="Coupon">
+                        
+                    </div>
+
+                    {{!-- <input type="text" class="rounded" style="height: 4rem;width: 30rem;"
+                        value="{{user.address2}}">
+                    --}}
+
+
+
+                    <h1 class="text-light"></h1>
+
+
+
+        </div>
+        <div class="col-6 pt-5">
+            <div class="h2 row m-3 text-warning   " value="{{total}}" id="total">TOTAL : {{total}}</div><br>
+
+
+
+            <div class=" border row border-warning rounded p-2 m-3 d-flex justify-content-center" style="
+            
+            ">
+                <span class="text-warning text-uppercase mb-2">Payment method</span><br><br>
+
+                <div class="border col-3 mx-2  justify-content-center rounded p-3 border-warning mb-3" style="height: 15vh;">
+                    <input type="radio" class="mt-3 container border" value="COD" name="paymentMethod" id=""><br> <label
+                        for="" class="tex
+                      p-2 text-center container  text-warning  ">COD</label>
+                </div><br>
+                
+                <div class="border col-3 mx-2 justify-content-center rounded  p-3 border-warning mb-3" style="height: 15vh;">
+                    <input type="radio" class="mt-3 container  border" value="razorpay" name="paymentMethod" id="">
+                    <label for="" class="text-warning container text-center p-2">RazorPay</label>
+                </div><br>
+               
+                <div class="border col-3 mx-2 justify-content-center rounded p-3 border-warning mb-3" style="height: 15vh;">
+                    <input type="radio" value="paypal" class="mt-3 container  border" name="paymentMethod" id=""><label for=""
+                        class="text-warning container text-center p-2">PayPal</label>
+                </div>
+                {{!-- <div id="paypal-payment-button" class="my-3"> --}}
+
+                    <input type="submit" onclick="placed()" placeholder="Place your Order"
+                        class=" rounded pay mb-2 p-2 mt-2 container-fluid " value="Pay Now">
+                     <style>
+                        .pay{
+                            background: none;
+                            border: solid gold 2px;
+                            color: gold;
+                            transform: 0.3s;
+                        }
+                        .pay:hover{
+                            background: gold;
+                            color: black;
+                            font-weight: 600;
+                            transition: 0.3s;
+
+                        }
+                     </style>
+                </div>
+
+                <br>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+    </form>
+
+</div>
+</div>
+
+
+<script
+    src="https://www.paypal.com/sdk/js?client-id=AeCcPJjFlQVn6PxXdat0I1xT3KokM9arU0-u_RnGCNJzJBLfknaW5yGXEFWI0nZMtYJmJ6W3BPgpgSCw&disable-funding=credit,card">
+    </script>
+
+<script>
+    let total = document.getElementById('total').value
+    paypal.Buttons({
+        style: {
+            color: 'gold',
+            shape: ''
+        },
+        createOrder: function (data, actions) {
+            console.log(data)
+            console.log(actions)
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '0.5'
+                    }
+                }]
+            });
+        },
+        onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+                console.log(details)
+                window.location.replace("http://localhost:3000/")
+            })
+        },
+        onCancel: function (data) {
+            window.location.replace("http://localhostt:3000/")
+        }
+    }).render('#paypal-payment-button');</script>
+
+
+
+<script>
+
+
+    $("#checkout").submit((e) => {
+        e.preventDefault()
+        $.ajax({
+            url: '/users/order',
+            method: 'post',
+            data: $("#checkout").serialize(),
+            success: (response) => {
+                if (response.CODsuccess) {
+                    location.href='/users/orderbook'
+                    {{!-- Swal.fire(
+                        'Order Placed!',
+                        'Order succ!',
+                        'success'
+                    ) --}}
+                } else if(response.paypal){
+                    location.href=response.url;
+
+                }else{
+                    console.log("sssssss", response)
+                    razorpayPayment(response)
+
+                }
+
+
+            }
+        })
+    })
+    function razorpayPayment(order) {
+        console.log("order : ", order)
+        var options = {
+            "key": "rzp_test_H11APaliOF96Ev", // Enter the Key ID generated from the Dashboard
+            "amount": order.response.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "KingsMen",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+                location.href = "/users/ordersuccess"
+
+                verifyPayment(response, order)
+            },
+            "prefill": {
+                "name": order.name,
+                "email": "gaurav.kumar@example.com",
+                "contact": "9999999999"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#FFFFFF"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    }
+    function verifyPayment(payment, order) {
+        $.ajax({
+            url: '/users/verifyPayment',
+            data: {
+                payment,
+                order
+            },
+            method: 'post'
+        })
+    }
+
+</script>
+{{/if}}
+
+{{!-- alert(response.razorpay_payment_id);
+alert(response.razorpay_order_id);
+alert(response.razorpay_signature) --}}

@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <form action="/admin/addCoupon" method="post" class="justify-content-center" style="height: 25rem;">
+            <label for="" class="text-warning my-2">Coupon Code</label><br>
+            <input type="text" class="form border rounded" name="CouponCode"><br>
+            <label for="" class="text-warning my-2">Offer</label><br>
+            <input type="text" class="form border rounded" name="Offer"><br>
+            <input type="submit" class="btn my-2 mb-4 text-warning" name="" id=""><br>
+
+            {{#if msg}}
+            <span class="p-3 border border-warning text-warning text-capitalize mt-3" style="width: 10rem;">{{msg}}</span>
+            {{/if}}
+        </form>
+    </div>
+</div>

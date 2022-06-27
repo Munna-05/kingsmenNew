@@ -1,0 +1,86 @@
+<div class="row" style="">
+    {{#each productDet}}
+    {{!-- <div class="col-3 border justify-content-center d-flex ">
+        <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light">
+            <a href="/product-details/{{this._id}}"><img src="/uploads/{{this.images.[0].filename}}"
+                    style="border-radius: 2rem ;" id="img-container" class="img-fluid image " /></a>
+            <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+        </div>
+    </div>
+    <div class="col-3 py-5">
+        <h3 class="" style="color: gold;">{{this.productName}}</h3>
+        <h3 class=""
+            style="font-weight: 100; font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 0.8em;color: gold;">
+            {{this.productDescription}} </h3>
+        <h3 class="btn" style="border: solid gold 1px;color: gold;">{{this.productPrice}} /-</h3><br>
+        <a href="/users/addtocart/{{this._id}}" onclick="placed()" class="btn btn-warning">add to Cart</a>
+        <a href="/users/buy/{{this._id}}" class="btn b" style="border: solid gold 1px;color: gold;">Buy Now</a>
+    </div> --}}
+    <div class="col-4 my-3 justify-content-center d-flex container" style="height: 25rem; width: auto;" >
+            <a href="/product-details/{{this._id}}"><img src="/uploads/{{this.images.[1].filename}}"
+                    style="border-radius: 2rem ; height: 25rem;" id="img-container" class="img-fluid image " /></a>
+           
+    </div>
+    <div class="col-4 my-3 justify-content-center d-flex container" style="height: 25rem; width: auto;" >
+            <a href="/product-details/{{this._id}}"><img src="/uploads/{{this.images.[0].filename}}"
+                    style="border-radius: 2rem ; height: 25rem;" id="img-container" class="img-fluid image " /></a>
+           
+    </div>
+    <div class="col-4 my-3 justify-content-center d-flex container" style="height: 25rem; width: auto;" >
+            <a href="/product-details/{{this._id}}"><img src="/uploads/{{this.images.[2].filename}}"
+                    style="border-radius: 2rem ; height: 25rem;" id="img-container" class="img-fluid image " /></a>
+           
+    </div>
+   
+    <script>
+        
+        function placed() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Successfully Added to Cart',
+                text: '',
+
+            })
+        }
+</script>
+</div>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center container-fluid">
+        <h3 class="" style="color: gold;">{{this.productName}}</h3>
+    </div>
+    <div class="col-12 justify-content-center text-center container-fluid " style=";" >
+        <h3 class=""
+            style="font-weight: 100; font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 0.8em;color: gold;">
+            {{this.productDescription}} </h3><br>
+        <h3 class="btn" style="border: solid gold 1px;color: gold;">{{this.productPrice}} /-</h3><br>
+        <br><a href="/users/addtocart/{{this._id}}" onclick="placed()" class="btn btn-warning m-1">Add to Cart</a>
+        <a href="/users/addtocartbuy/{{this._id}}" class="btn b m-1" style="border: solid gold 1px;color: gold;">Buy Now</a>
+    </div>
+</div>
+    {{/each}}
+
+{{!--
+<script>
+    var options = {
+        width: 400,
+        height: 250,
+        zoomWidth: 500,
+        offset { vertical:0, horizontal:10},
+        scale: 1.5
+    }
+    new ImageZoom(document.getElementById('img-container'), options)
+</script> --}}
+<style>
+    .image {
+        height: 80vh;
+        transition: transform .5s ease;
+
+    }
+
+    .image:hover {
+        transform: scale(1.2);
+    }
+</style>
+

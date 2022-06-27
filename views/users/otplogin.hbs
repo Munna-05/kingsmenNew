@@ -1,0 +1,63 @@
+<div class="container-fluid d-flex justify-content-center">
+    <div class="row">
+        <div class="col-12 mt-5 rounded container-fluid text-center d-flex justify-content-center p-5">
+            <form action="/otplogin" method="post">
+                {{!-- <span class="" style="color: gold;">Enter Otp</span><br><br> --}}
+
+                <input type="text" value="" onkeyup="" class="form-control " id="otpnum" maxlength="10" name="phone"
+                    style="background: none;border: solid gold 2px ;color: gold;">
+                {{#if error}}
+                <span id="spanNum" class="mt-1 me-4 mb-2 btn alert" style="color: rgb(255, 0, 0);border: none;">{{this.error}}
+                    </span>
+                {{else}}
+                <span id="spanNum" class="mt-1 me-4 mb-2 btn" style="color: gold;border: none;">Enter Mobie
+                    Number</span>
+                {{/if}}
+                <input type="submit" onclick="return validate()" class="btn mt-3 btn-warning" value="Sumbit">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function otpval() {
+        var otp = document.getElementById('otpId').value
+
+     
+
+        if (otp == "") {
+            document.getElementById('span').innerHTML = "Enter Otp"
+            document.getElementById('span').style.color = 'red'
+            document.getElementById('otpId').style.border = 'solid red 2px'
+            return false
+        } else {
+            document.getElementById('span').innerHTML = "Enter Otp"
+            document.getElementById('span').style.color = 'gold'
+            document.getElementById('otpId').style.border = 'solid gold 2px'
+            return true
+
+        }
+
+    }
+    function otpnumval(){
+           if (isNaN(otp)) {
+            document.getElementById('span').innerHTML = "Letters not Allowed"
+            document.getElementById('otpId').style.border = 'solid red 2px'
+            document.getElementById('span').style.color = 'red'
+
+
+            return false
+        }
+
+    }
+
+
+
+    function validate() {
+        if (!otpval()|| !otpnumval()) {
+            return false
+        }
+    }
+
+</script>

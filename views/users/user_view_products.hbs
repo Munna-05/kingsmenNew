@@ -1,0 +1,63 @@
+<div class="row container-fluid justify-content-center " >
+  {{#each item}}
+
+  <div class="col-xl-2 col-md-4 col-sm-3  d-flex mt-2 justify-content-center ">
+    <div class="card " style="width: auto;background: black;border-radius: 2rem;">
+      <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light">
+        <a href="/product-details/{{this._id}}"><img src="/uploads/{{this.images.[0].filename}}"
+            style="border-radius: 2rem ;" class="img-fluid " /></a>
+        <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+      </div>
+      <div class="card-body text-center ">
+        <h5 class="card-title text-uppercase text-light h6">{{this.productName}}</h5>
+        <p class="card-text text-light" style="font-size: 0.6rem;">{{this.productDescription}}</p>
+        <p class="card-text text-light" style="background: rgb(20, 19, 19); border-radius: 2rem; width:auto;">
+          {{this.productPrice}}/-</p>
+       <div class="row">
+         <a href="/users/wishlist/{{this._id}}" onclick="placed()" class="btn mt-1 mb-1 btn-outline-light" style="font-size: 0.7rem;" >Add to Wishlist</a>
+        <a href="/users/addtocart/{{this._id}}" onclick="placed()" class="btn btn-warning border border-dark col-6 pt-2" style="font-size: 0.7rem;">Add to Cart</a>
+        <a href="/product-details/{{this._id}}" class="btn btn-success border border-dark col-6" style="font-size: 0.7rem;">Buy</a>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-2 col-md-4 col-sm-3  d-flex mt-2 justify-content-center ">
+    <div class="card " style="width: auto;background: black;border-radius: 2rem;">
+      <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light">
+        <a href="/product-details/{{this._id}}"><img src="/uploads/{{this.images.[2].filename}}"
+            style="border-radius: 2rem ;" class="img-fluid " /></a>
+        <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+      </div>
+      <div class="card-body text-center ">
+        <h5 class="card-title text-uppercase text-light h6">{{this.productName}}</h5>
+        <p class="card-text text-light" style="font-size: 0.6rem;">{{this.productDescription}}</p>
+        <p class="card-text text-light" style="background: rgb(20, 19, 19); border-radius: 2rem; width:auto;">
+          {{this.productPrice}}/-</p>
+         
+       <div class="row">
+         <a href="/users/wishlist/{{this._id}}" onclick="placed()" class="btn mt-1 mb-1 btn-outline-light" style="font-size: 0.7rem;" >Add to Wishlist</a>
+        <a href="/users/addtocart/{{this._id}}" onclick="placed()" class="btn btn-warning border border-dark col-6 pt-2" style="font-size: 0.7rem;">Add to Cart</a>
+        <a href="/product-details/{{this._id}}" class="btn btn-success border border-dark col-6" style="font-size: 0.7rem;">Buy</a>
+       </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function placed() {
+      Swal.fire({
+        position:'top-end',
+       
+        icon: 'success',
+        title: 'Successfully Added to Cart',
+        text: '',
+
+      })
+    }
+  </script>
+
+  {{/each}}
+</div>

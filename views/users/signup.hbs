@@ -1,0 +1,231 @@
+<section class="vh-100" style="background-color: rgb(0, 0, 0);">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-warning" style="border-radius: 25px;background: black;">
+          
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+
+
+
+                {{#if message}}
+                <div class="alert alert-danger text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ">{{message}}</div>
+                {{else}}
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+                {{/if}}
+
+                <form class="mx-1 mx-md-4 text-warning" id="form"  method="post" action="/signup">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label " for="form3Example1c" id="label_name">Your Name</label>
+                      <span class="" style="color: red;" id="span_name"></span>
+                      <input type="text" id="form_name" class="form-control  text-warning" style="background: none; border: solid gold 1px;" pattern="[a-zA-Z'-'\s]*"
+                        onkeyup="nameval()" name="name" />
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" id="email" for="form3Example3c">Your Email</label>
+                      <input type="email" id="form_email" oninput="checkEmail()" class="form-control text-warning" style="background: none; border: solid gold 1px;" name="email" />
+                      <span id="span_email"></span>
+                    </div>
+
+
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" id="label_phone" for="form3Example3c">Phone Number</label>
+                      <input type="text" id="form_phone"  class="form-control text-warning" style="background: none; border: solid gold 1px;" oninput="checkmobile()"  maxlength="10" minlength="10" name="phone" />
+                      <span id="span_email"></span>
+
+                    </div>
+
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" id="label_email" for="form3Example3c">Address</label>
+                      <input type="text" id="form_email" class="form-control text-warning" style="background: none; border: solid gold 1px;" name="address" required />
+                      <span id=""></span>
+                    </div>
+
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" id="label_pass" for="form3Example4c">Password</label>
+                      <input type="password" id="pass" class="form-control text-warning" style="background: none; border: solid gold 1px;" name="password" />
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center ">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" id="label_rpass" for="form3Example4cd">Repeat your password</label>
+                      <input type="password" id="rpass" class="form-control text-warning" style="background: none; border: solid gold 1px;" onkeyup="password()" name="form_rpass" />
+                    </div><br>
+
+
+
+                  </div>
+
+                  {{!-- <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div> --}}
+
+                  <div class="d-flex justify-content-center mx-4 my-3 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-outline-warning btn-lg" onclick="return validate()">Register</button>
+                  </div>
+
+                </form>
+
+              </div>
+              {{!-- <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div> --}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<script>
+
+
+
+
+
+
+  function nameval() {
+    var name = document.getElementById("form_name").value
+
+    if (name.length == 0) {
+
+      document.getElementById('form_name').style.border = "solid red 1px"
+      document.getElementById('label_name').style.display = "none"
+      document.getElementById("span_name").innerHTML = "Enter Name"
+      return false
+
+    } else {
+      document.getElementById("span_name").innerHTML = ""
+      document.getElementById('label_name').style.display = 'block'
+      document.getElementById('form_name').style.border = "solid black 1px"
+
+      return true
+    }
+  }
+
+
+  function password() {
+
+    var pass = document.getElementById('pass').value
+    var rpass = document.getElementById('rpass').value
+
+
+
+    if (pass != rpass) {
+      document.getElementById('label_rpass').innerHTML = "password doesn't match"
+      document.getElementById('label_rpass').style.color = "red"
+      document.getElementById('pass').style.border = "solid red 1px"
+      return false
+    } else {
+      document.getElementById('label_rpass').innerHTML = ""
+      document.getElementById('label_rpass').style.color = "black"
+      document.getElementById('pass').style.border = "solid black 1px"
+      return true
+    }
+
+  }
+
+  function validate() {
+    if (!nameval() || !password()) {
+      return false
+    }
+  }
+
+  function checkEmail(userEmail) {
+    var userEmail = $('#form_email').val();
+    $.ajax({
+      url: '/check-email',
+      data: { email: userEmail },
+      method: 'post',
+      success: (response) => {
+        if (response.status) {
+          //alert("same email");
+          document.getElementById('email').innerHTML = "This email already exist!!!";
+          document.getElementById('email').style.color = "red";
+          //document.getElementById('checkEmail').innerHTML=null;
+        } else {
+          document.getElementById('email').innerHTML =" Your Email";
+          document.getElementById('email').style.color =" black";
+        }
+
+      }
+    })
+  }
+  function checkmobile(userEmail) {
+    var userEmail = $('#form_phone').val();
+    $.ajax({
+      url: '/check-phone',
+      data: { phone: userEmail },
+      method: 'post',
+      success: (response) => {
+        if (response.status) {
+          //alert("same email");
+          document.getElementById('label_phone').innerHTML = "This number already exist!!!";
+          document.getElementById('label_phone').style.color = "red";
+          //document.getElementById('checkEmail').innerHTML=null;
+        } else {
+          document.getElementById('label_phone').innerHTML =" Phone Number";
+          document.getElementById('label_phone').style.color =" black";
+        }
+
+      }
+    })
+  }
+
+
+
+
+</script>
+
+
+{{!--
+<script>
+  const form = document.getElementById('form').value
+  const name = document.getElementById('form_name')
+  const email = document.getElementById('form_email')
+  const pass = document.getElementById('pass')
+  const rpass = document.getElementById('rpass')
+  const errorElement = document.getElementById('error')
+
+
+
+
+
+
+
+
+</script> --}}

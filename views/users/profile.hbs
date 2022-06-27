@@ -1,0 +1,118 @@
+<div class="container-fluid ">
+    {{!-- <a href="/users/updateProfile" class="btn btn-light m-3">Update Profile</a> --}}
+    {{#if user}}
+    {{!-- <div class="row rounded p-5" style="border:solid gold 2px;">
+        <div class="col-3 border ">
+            <img src="" alt="">
+        </div>
+        <div class="col-9 text-start  ">
+            <span class="text-light h4 text-capitalize">Username : {{this.name}} </span><br>
+            <span class="text-light">Email : {{this.email}} </span><br>
+            <span class="text-light">Password : {{this.password}} </span><br>
+            <span class="text-light">Address : {{this.address}} </span>
+        </div>
+    </div> --}}
+    <div class="container rounded bg-* text-warning mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><span
+                        class="font-weight-bold text-uppercase">{{user.name}}</span><span
+                        class="text-warning-50 ">{{user.email}}</span><span> </span></div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <form action="/users/updateuserprofile" class="text-warning" method="post">
+                        <div class="row mt-2">
+                            <div class="col-md-6 "><label class="labels">Name</label><input type="text" name="name"
+                                    class="form-control border border-warning text-capitalize text-warning" style="background: none;" placeholder="name" value="{{user.name}}"></div>
+                            {{!-- <div class="col-md-6"><label class="labels">Surname</label><input type="text"
+                                    class="form-control" value="" placeholder="surname"></div> --}}
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" name="phone"
+                                    class="form-control text-warning border border-warning " style="background: none;" placeholder="enter phone number" value="{{user.phone}}"></div>
+                            <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" name="address"
+                                    class="form-control text-warning border border-warning " style="background: none;" placeholder="enter address line 1" value="{{user.address}}">
+                            </div>
+                            <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" name="address2"
+                                    class="form-control text-warning border border-warning " style="background: none;" placeholder="enter address line 2" value="{{user.address2}}"></div>
+                            
+                            <div class="col-md-12"><label class="labels">Email ID</label><input type="text" name="email"
+                                    class="form-control text-warning border border-warning " style="background: none;" placeholder="enter email id" value="{{user.email}}"></div>
+                            {{!-- <div class="col-md-12"><label class="labels">Education</label><input type="text"
+                                    class="form-control" placeholder="education" value=""></div> --}}
+                        <a href="/users/changepassword" class="my-2 text-secondary">Change Password</a>
+                        </div>
+                        {{!-- <div class="row mt-3">
+                            <div class="col-md-6"><label class="labels">Country</label><input type="text"
+                                    class="form-control" placeholder="country" value=""></div>
+                            <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
+                                    class="form-control" value="" placeholder="state"></div>
+                        </div> --}}
+                        <div class="mt-5 text-center"><input class="btn btn-warning"
+                                type="submit"></input></div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{!-- <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit
+                            Experience</span><span class="border px-3 p-1 add-experience"><i
+                                class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                    <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text"
+                            class="form-control" placeholder="experience" value=""></div> <br>
+                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text"
+                            class="form-control" placeholder="additional details" value=""></div>
+                </div> --}}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{{/if}}
+</div>
+<style>
+    form-control:focus {
+        box-shadow: none;
+        border-color: #BA68C8
+    }
+
+    .profile-button {
+        background: rgb(99, 39, 120);
+        box-shadow: none;
+        border: none
+    }
+
+    .profile-button:hover {
+        background: #682773
+    }
+
+    .profile-button:focus {
+        background: #682773;
+        box-shadow: none
+    }
+
+    .profile-button:active {
+        background: #682773;
+        box-shadow: none
+    }
+
+    .back:hover {
+        color: #682773;
+        cursor: pointer
+    }
+
+    .labels {
+        font-size: 11px
+    }
+
+    .add-experience:hover {
+        background: #BA68C8;
+        color: #fff;
+        cursor: pointer;
+        border: solid 1px #BA68C8
+    }
+</style>

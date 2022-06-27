@@ -1,0 +1,68 @@
+{{!-- <div class="container-fluid d-flex justify-content-center"><a href="/admin/addUser" class="btn btn-success">Add
+        User</a></div> --}}
+<table class="table text-light container text-center" style="border: solid gold 1px ;border-radius: 25%;">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Desription</th>
+            <th scope="col">Price</th>
+            <th scope="col">Options</th>
+        </tr>
+    </thead>
+    {{#each item}}
+    <tbody class="">
+        <tr>
+            <th scope="row">{{inc @index}}</th>
+            <td><img src="/uploads/{{this.images.[1].filename}}" alt="" style="width: 5em;"></td>
+            <td>{{this.productName}}</td>
+            <td>{{this.productDescription}}</td>
+            <td style="font-size: 15px;width: 12em;">INR {{this.productPrice}} /-</td>
+            <td>
+
+                {{!-- /admin/deleteProduct/{{this._id}} --}}
+                {{!-- <a href="/admin/deleteProduct/{{this._id}}" class="btn btn-danger" onclick="sweet()"
+                    style="text-decoration: none;color:black ;">Delete</a> --}}
+                <a class="btn btn-success mb-2 me-3" onclick=""
+                    href="/admin/editProduct/{{this._id}}">Edit</a>
+                <a class="btn btn-danger" onclick="deleteProduct(event)"
+                    href="/admin/deleteProduct/{{this._id}}">Delete</a>
+
+            </td>
+            {{!-- {{#if this.blockStatus}}
+            <td><a href="/admin/unblock/{{this._id}}" class="btn btn-success mx-3">Unblock</a></td>
+            {{else}}
+            <td><a href="/admin/block/{{this._id}}" class="btn btn-primary mx-3">Block</a></td>
+            {{/if}} --}}
+
+        </tr>
+        <script>
+            function deleteProduct(event) {
+                var link = event.currentTarget.href;
+                var name = event.currentTarget.name;
+                event.preventDefault();
+
+
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You want to Delete!" + " " + name,
+                    icon: 'warning',
+                    iconColor: '#bf0f0f',
+                    showCancelButton: true,
+                    confirmButtonColor: '#11ba25',
+                    cancelButtonColor: '#bf0f0f',
+                    confirmButtonText: `Yes`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = link;
+                    } else {
+                        return false;
+                    }
+                })
+            }
+        </script>
+    </tbody>
+    {{/each}}
+</table>

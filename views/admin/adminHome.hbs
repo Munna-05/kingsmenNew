@@ -1,0 +1,533 @@
+{{!-- <h1 class="text-light text-uppercase container justify-content-start ">ADMIN Dashboard</h1> --}}
+
+
+
+<!-- Spinner Start -->
+{{!-- <div id="spinner"
+    class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div> --}}
+<!-- Spinner End -->
+
+
+<!-- Sidebar Start -->
+{{!-- <div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-secondary navbar-dark">
+        <a href="index.html" class="navbar-brand mx-4 mb-3">
+            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>DarkPan</h3>
+        </a>
+        <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="position-relative">
+                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                <div
+                    class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                </div>
+            </div>
+            <div class="ms-3">
+                <h6 class="mb-0">Jhon Doe</h6>
+                <span>Admin</span>
+            </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                        class="fa fa-laptop me-2"></i>Elements</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="button.html" class="dropdown-item">Buttons</a>
+                    <a href="typography.html" class="dropdown-item">Typography</a>
+                    <a href="element.html" class="dropdown-item">Other Elements</a>
+                </div>
+            </div>
+            <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+            <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+            <a href="table.html" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Tables</a>
+            <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                        class="far fa-file-alt me-2"></i>Pages</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="signin.html" class="dropdown-item">Sign In</a>
+                    <a href="signup.html" class="dropdown-item">Sign Up</a>
+                    <a href="404.html" class="dropdown-item">404 Error</a>
+                    <a href="blank.html" class="dropdown-item">Blank Page</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div> --}}
+<!-- Sidebar End -->
+
+
+<!-- Content Start -->
+
+<!-- Navbar Start -->
+{{!-- <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+    <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+        <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+    </a>
+    <a href="#" class="sidebar-toggler flex-shrink-0">
+        <i class="fa fa-bars"></i>
+    </a>
+    <form class="d-none d-md-flex ms-4">
+        <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+    </form>
+    <div class="navbar-nav align-items-center ms-auto">
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="fa fa-envelope me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Message</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                <a href="#" class="dropdown-item">
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="ms-2">
+                            <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                            <small>15 minutes ago</small>
+                        </div>
+                    </div>
+                </a>
+                <hr class="dropdown-divider">
+                <a href="#" class="dropdown-item">
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="ms-2">
+                            <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                            <small>15 minutes ago</small>
+                        </div>
+                    </div>
+                </a>
+                <hr class="dropdown-divider">
+                <a href="#" class="dropdown-item">
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="ms-2">
+                            <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                            <small>15 minutes ago</small>
+                        </div>
+                    </div>
+                </a>
+                <hr class="dropdown-divider">
+                <a href="#" class="dropdown-item text-center">See all message</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="fa fa-bell me-lg-2"></i>
+                <span class="d-none d-lg-inline-flex">Notificatin</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                <a href="#" class="dropdown-item">
+                    <h6 class="fw-normal mb-0">Profile updated</h6>
+                    <small>15 minutes ago</small>
+                </a>
+                <hr class="dropdown-divider">
+                <a href="#" class="dropdown-item">
+                    <h6 class="fw-normal mb-0">New user added</h6>
+                    <small>15 minutes ago</small>
+                </a>
+                <hr class="dropdown-divider">
+                <a href="#" class="dropdown-item">
+                    <h6 class="fw-normal mb-0">Password changed</h6>
+                    <small>15 minutes ago</small>
+                </a>
+                <hr class="dropdown-divider">
+                <a href="#" class="dropdown-item text-center">See all notifications</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                <span class="d-none d-lg-inline-flex">John Doe</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                <a href="#" class="dropdown-item">My Profile</a>
+                <a href="#" class="dropdown-item">Settings</a>
+                <a href="#" class="dropdown-item">Log Out</a>
+            </div>
+        </div>
+    </div>
+</nav> --}}
+<!-- Navbar End -->
+<div class="row">
+    <div class="col-12 mt-3">
+        <a href="/admin/addCoupon" class="p-2 m-5 " style="border: solid gold 2px;color: gold;text-decoration: none;">Add Coupons</a>
+    </div>
+</div>
+<div class="row d-lfex justify-content-center">
+    <div class="col-1 p-3 text-center text-warning border-warning m-2 mb-3 border">
+        Total Users <br>
+        {{users}}
+        <input type="text" name="" id="users" value="{{users}}" hidden>
+
+    </div>
+    <div class="col-1 p-3 text-center text-warning border-warning m-2 mb-3 border">
+        Active Users <br>
+        {{active}}
+        <input type="text" name="" id="active" value="{{active}}" hidden>
+
+    </div>
+    <div class="col-1 p-3 text-center text-warning border-warning m-2 mb-3 border">
+        Total products <br>
+        {{products}}
+     </div>
+    <div class="col-1 p-3 text-center text-warning border-warning m-2 mb-3 border">
+        Total Orders <br>
+        {{orderDetails}}
+        <input type="text" name="" id="orders" value="{{orderDetails}}" hidden>
+    </div>
+</div>
+
+<div class="row pt-3  container-fluid ps-4" style="" >
+    {{!-- <span class="text-light h3">Users</span> --}}
+    {{!-- <span class="text-light h3 ">Products</span> --}}
+    {{!-- <div class="table-wrapper-scroll-y  pt-3 col-3  text-light my-custom-scrollbar" style="height: 22rem;" >
+
+        <table class="table table-bordered  border-warning text-light mb-0" style="" >
+            <thead class="text-warning text-center ">
+
+                <tr>
+                    <th scope="col" class="">No</th>
+                    <th scope="col" class="">Name</th>
+                    <th scope="col" class="">Email</th>
+                    <th scope="col" class="">Status</th>
+                </tr>
+
+            </thead>
+            <tbody class="text-center">
+                {{#each users}}
+                <tr>
+                    <th scope="row">{{inc @index}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.blockStatus}}</td>
+                </tr>
+                {{/each}}
+
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="table-wrapper-scroll-y  pt-3 col-3 text-light my-custom-scrollbar" style="height: 18rem;" >
+
+        <table class="table table-bordered border-warning text-light mb-0">
+            <thead class="text-warning text-center ">
+
+                <tr>
+                    <th scope="col" class="">No</th>
+                    <th scope="col" class="">Product Name</th>
+                    <th scope="col" class="">Category</th>
+                    <th scope="col" class="">Price</th>
+                </tr>
+
+            </thead>
+            <tbody class="text-center">
+                {{#each products}}
+                <tr>
+                    <th scope="row">{{inc @index}}</th>
+                    <td>{{this.productName}}</td>
+                    <td>{{this.productCategory}}</td>
+                    <td>{{this.productPrice}}/-</td>
+                </tr>
+                {{/each}}
+
+
+            </tbody>
+        </table>
+
+    </div> --}}
+
+    {{!-- <span class="h3 my-3 col-6 text-light">Order History</span> --}}
+    {{!-- <div class="table-wrapper-scroll-y  pt-3 col-6 text-light my-custom-scrollbar " style="height: 22rem;">
+
+        <table class="table table-bordered col-3 border-warning text-light mb-0" >
+            <thead class="text-warning text-center ">
+
+                <tr>
+                    <th scope="col" class="">No</th>
+                    <th scope="col" class="">Date</th>
+                    <th scope="col" class="">Name</th>
+                    <th scope="col" class="">User Email</th>
+                    <th scope="col" class="">Payment Method</th>
+                    <th scope="col" class="">Status</th>
+                    <th scope="col" class="">Amount</th>
+                </tr>
+
+            </thead>
+            <tbody class="text-center">
+                {{#each orderDetails}}
+                <tr>
+                    <th scope="row">{{inc @index}}</th>
+                    <th scope="row">{{this.date}}</th>
+                    <td>{{this.deliveryDetails.name}}</td>
+                    <td>{{this.deliveryDetails.email}}</td>
+                    <td>{{this.deliveryDetails.paymentMethod}}</td>
+                    <td>{{this.status}}</td>
+                    <td>{{this.amount}}/-</td>
+                </tr>
+                {{/each}}
+
+
+            </tbody>
+        </table>
+
+    </div> --}}
+
+
+
+</div>
+</div>
+
+
+<style>
+    .my-custom-scrollbar {
+        position: relative;
+        height: 200px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+</style>
+
+
+<div class="row mt-5 justify-content-center ms-3">
+    <div class="col-3 mx-1">
+        <canvas id="myChart" class="" width="50" height="50"></canvas>
+    </div>
+  
+    <div class="col-3 mx-1">
+        <canvas id="myChart2" class="" width="50" height="50"></canvas>
+    </div>
+    <div class="col-3 mx-1">
+        <canvas id="myChart3" class="" width="50" height="50"></canvas>
+    </div>
+</div>
+{{!-- watchCount,shoesCount,eyewearCount,perfumeCount,suitsCount --}}
+        <input type="text" name="" id="watch" value="{{watchCount}}" hidden>
+        <input type="text" name="" id="shoes" value="{{shoesCount}}" hidden>
+        <input type="text" name="" id="eyewear" value="{{eyewearCount}}" hidden>
+        <input type="text" name="" id="perfume" value="{{perfumeCount}}" hidden>
+        <input type="text" name="" id="suits" value="{{suitsCount}}" hidden>
+
+
+
+
+
+<script>
+    let orders=document.getElementById('orders').value
+    let active=document.getElementById('active').value
+    let users=document.getElementById('users').value
+
+    let watch=document.getElementById('watch').value
+    let shoes=document.getElementById('shoes').value
+    let eyewear=document.getElementById('eyewear').value
+    let perfume=document.getElementById('perfume').value
+    let suits=document.getElementById('suits').value
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Orders', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: 'Order Stats',
+                data: [orders, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    const ctx3 = document.getElementById('myChart3').getContext('2d');
+    const myChart3 = new Chart(ctx3, {
+        type: 'bar',
+        data: {
+            labels: ['active', 'totalUsers', ],
+            datasets: [{
+                label: 'User_Stats',
+                data: [active, users,],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    const ctx2 = document.getElementById('myChart2').getContext('2d');
+    const myChart2 = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: ['watch', 'shoes', 'eyewear', 'perfumes', 'suits'],
+            datasets: [{
+                label: 'Products',
+                data: [watch, shoes, eyewear,perfume, suits],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+               
+            }
+        }
+    });
+</script>
+ {{!-- <style>
+      * {
+        box-sizing: border-box;
+      }
+      .openBtn {
+        display: flex;
+        justify-content: left;
+      }
+      .openButton {
+        border: none;
+        border-radius: 5px;
+        background-color: #1c87c9;
+        color: white;
+        padding: 14px 20px;
+        cursor: pointer;
+        position: fixed;
+      }
+      .loginPopup {
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+      .formPopup {
+        display: none;
+        position: fixed;
+        left: 45%;
+        top: 5%;
+        transform: translate(-50%, 5%);
+        border: 3px solid #999999;
+        z-index: 9;
+      }
+      .formContainer {
+        max-width: 300px;
+        padding: 20px;
+        background-color: #fff;
+      }
+      .formContainer input[type=text],
+      .formContainer input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        border: none;
+        background: #eee;
+      }
+      .formContainer input[type=text]:focus,
+      .formContainer input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+      .formContainer .btn {
+        padding: 12px 20px;
+        border: none;
+        background-color: #8ebf42;
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        opacity: 0.8;
+      }
+      .formContainer .cancel {
+        background-color: #cc0000;
+      }
+      .formContainer .btn:hover,
+      .openButton:hover {
+        opacity: 1;
+      }
+    </style>
+ 
+ 
+    <div class="openBtn">
+      <button class="openButton" onclick="openForm()"><strong>Open Form</strong></button>
+    </div>
+    <div class="loginPopup ">
+      <div class="formPopup border border-1 bg-light rounded w-50" id="popupForm">
+        <form action="/action_page.php" class="formContainer container bg-light" style="" >
+          <h2>Please Log in</h2>
+          <label for="email">
+            <strong>E-mail</strong>
+          </label>
+          <input type="text" id="email" placeholder="Your Email" name="email" required>
+          <label for="psw">
+            <strong>Password</strong>
+          </label>
+          <input type="password" id="psw" placeholder="Your Password" name="psw" required>
+          <button type="submit" class="btn">Log in</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function openForm() {
+        document.getElementById("popupForm").style.display = "block";
+      }
+      function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+      }
+    </script> --}}

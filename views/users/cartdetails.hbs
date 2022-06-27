@@ -1,0 +1,117 @@
+{{!-- <div class="container-fluid d-flex justify-content-center"><a href="/admin/addUser" class="btn btn-success">Add
+        User</a></div> --}}
+<table class="table text-dark rounded container text-center" style="background: rgb(186, 186, 186);" >
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Desription</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            {{!-- <th scope="col">Total Amount</th> --}}
+            <th scope="col">Options</th>
+        </tr>
+    </thead>
+    {{#each cartItems}}
+    <tbody>
+        <tr>
+            <th scope="row" class="">{{inc @index}}</th>
+
+            <td><img src="/product-images/{{this.product._id}}.jpg" alt="" class="" style="width: 5em;"></td>
+            <td class="" style="width: 15rem" ;>{{this.product.productName}}</td>
+
+            <td class=" " style="width: 15rem;">{{this.product.productDescription}}</td>
+            <td class="" id="{{this._id}}" style="font-size: 15px;width: 10em;">
+
+                <button class=" btn-warning me-1"
+                    onclick="changeQuantity('{{this._id}}','{{this.product._id}}',1)">+</button>
+                <span id="{{this.product._id}}"> {{this.quantity}} </span>
+                <button class="btn-warning ms-1"
+                    onclick="changeQuantity('{{this._id}}','{{this.product._id}}',-1)">-</button>
+            </td>
+
+            {{!-- <td style="font-size: 15px;width: 10em;">INR total /- </td> --}}
+
+            <td style="font-size: 15px;width: 10em;" id="price">INR {{this.product.productPrice}} /- </td>
+
+            <td><button type="button" onclick="sweet()" class="btn btn-danger"><a
+                        href="/users/deleteProduct/{{this.product._id}}" class="delete"
+                        style="text-decoration: none;color:black ;"  onclick="productadded(event)" > Delete </a></button></td>
+
+
+
+        </tr>
+
+        {{/each}}
+        <div class="div container m-5 d-flex justify-content-end">            
+                <a href="/users/order" class="btn btn-success" style="text-decoration: none;color:black ;">Proceed to
+                    Checkout</a>
+        </div>
+
+            
+    </tbody>
+    {{!-- <div class="container d-flex justify-content-end">
+        {{!-- <span class="text-light">Total:{{total}} </span> --}}
+        {{!-- <span class="h5 text-light" id="total"></span> --}}
+        {{!-- </div> --}}
+</table>
+
+<script>
+
+
+    function changeQuantity(cartId, proId, count) {
+        let quantity = parseInt(document.getElementById(proId).innerHTML)
+        console.log(cartId)
+        console.log(proId)
+        console.log(count)
+        $.ajax({
+            url: '/users/change-product-quantity',
+            data: {
+                cart: cartId,
+                product: proId,
+                count: count,
+                quantity: quantity
+
+            },
+            method: 'POST',
+            success: (response) => {
+                if (response.removeProduct == true) {
+                    alert("product removed from cart")
+                    location.reload()
+                } else {
+                    document.getElementById(proId).innerHTML = quantity + count
+                    document.getElementById('total').innerHTML = (response.total).value
+                }
+
+            }
+        })
+    }
+
+    function productadded(event) {
+        var link = event.currentTarget.href;
+
+        event.preventDefault();
+
+
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to Delete!" + " " + name,
+            icon: 'success',
+            iconColor: '#bf0f0f',
+            showCancelButton: true,
+            confirmButtonColor: '#11ba25',
+            cancelButtonColor: '#bf0f0f',
+            confirmButtonText: `Yes`
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = link;
+            } else {
+                return false;
+            }
+        })
+    }
+
+
+</script>

@@ -132,7 +132,7 @@ router.post('/order', verifyLogin, async (req, res) => {
    req.session.total=discount
   }
     
-  
+   
 
   console.log(req.body);
   let userId = req.session.user._id

@@ -10,12 +10,16 @@ var productHelper = require('../helpers/product-helpers');
 const { otp } = require('../controller/indexController');
 const async = require('hbs/lib/async');
 const bcrypt = require('bcrypt')
+require('dotenv').config()
 
- 
+ // const serviceSID = 'VA73dedc3c41bc065479d0fef5b9be613d'
+// const accountSID = 'AC3951303d100e6997af85a1b05845f244'
+// const authToken = '065e90bf9cbd1ef3f6dad9a9f0c63ee3'
 
-const serviceSID = 'VA73dedc3c41bc065479d0fef5b9be613d'
-const accountSID = 'AC3951303d100e6997af85a1b05845f244'
-const authToken = '5b1572d4cc43621967fc3fd4c2baa545'
+
+const serviceSID = process.env.SERVICESID
+const accountSID = process.env.ACCOUNTSID
+const authToken = process.env.AUTH
 
 const client = require('twilio')(accountSID, authToken)
 
@@ -154,7 +158,7 @@ router.post('/otplogin', async (req, res) => {
   }
   else {
     client.verify.services(serviceSID).verifications.create({
-      to: `+91${req.body.phone}`,
+      to: `+917012234435`,
       channel: 'sms'
     })
     req.session.user = userDetails

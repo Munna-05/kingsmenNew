@@ -175,14 +175,14 @@ module.exports = {
 
             console.log("___________________________");
             console.log("___________________________");
-            resolve(total[0]?.total)
+            resolve(total[0].total)
         })
 
     },
     getCartProductList: ((userId) => {
         return new Promise(async (resolve, reject) => {
             let cart = await db.get().collection(collection.CART_COLLECTIONS).findOne({ user: userId })
-            resolve(cart?.products)
+            resolve(cart.products)
         })
     }),
     cancelOrder: (id) => {
@@ -464,7 +464,7 @@ module.exports = {
                 },
             ]).toArray()
   
-            resolve(totaldiscount[0]?.discount)
+            resolve(totaldiscount[0].discount)
         })
 
     }),

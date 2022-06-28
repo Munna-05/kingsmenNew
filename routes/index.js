@@ -158,7 +158,7 @@ router.post('/otplogin', async (req, res) => {
   }
   else {
     client.verify.services(serviceSID).verifications.create({
-      to: `+917012234435`,
+      to: `+91${req.body.phone}`,
       channel: 'sms'
     })
     req.session.user = userDetails

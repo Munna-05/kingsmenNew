@@ -166,7 +166,7 @@ module.exports = {
                     {
                         $group: {
                             _id: null,
-                            total: { $sum: { $multiply: [{ $toInt: '$quantity' }, { $toInt: '$product.productPrice' },{$toInt:'$product.ProductOffer'}] } }
+                            total: { $sum: { $multiply: [{ $toInt: '$quantity' }, { $toInt: '$product.productPrice' }] } }
                         }
 
 

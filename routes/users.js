@@ -167,7 +167,7 @@ router.post('/order', verifyLogin, async (req, res) => {
         "payment_method": "paypal"
       },
       "redirect_urls": {
-        "return_url": "https://vajraindia.in/users/success",
+        "return_url": "https://vajraindia.in/users/ordersuccess",
         "cancel_url": "https://vajraindia.in/"
       },
       "transactions": [{
@@ -310,7 +310,7 @@ router.post('/users/verifypayment', (req, res) => {
   console.log(req.body);
 })
 
-router.get('/ordersuccess', (req, res) => {
+router.get('/ordersuccess',verifyLogin, (req, res) => {
   let user = req.session.user
   res.render('users/orderSuccess', { user })
 })

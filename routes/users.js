@@ -167,8 +167,8 @@ router.post('/order', verifyLogin, async (req, res) => {
         "payment_method": "paypal"
       },
       "redirect_urls": {
-        "return_url": "http://return.url",
-        "cancel_url": "http://cancel.url"
+        "return_url": "https://vajraindia.in/users/success",
+        "cancel_url": "https://vajraindia.in/"
       },
       "transactions": [{
         "item_list": {

@@ -30,9 +30,7 @@ module.exports = {
         let cartItems = await productHelper.getcart(req.session.user._id)
         console.log("...........................cart items", cartItems);
         let total = await productHelper.getTotalAmount(req.session.user._id)
-        // let totalDiscount = await productHelper.getDiscount(req.session.user._id)
 
-        // console.log("------------------",cartItems[0].product.ProductOffer);
         
         res.render('users/cart', { cartItems, user, total })
     },

@@ -164,7 +164,7 @@ router.get('/deleteProduct/:id', (req, res) => {
     res.render('admin/admin_viewProducts', { admin: true })
 })
 router.get('/orderbook', async (req, res) => {
-    let orderDetails = await db.get().collection(collection.ORDER_COLLECTIONS).find().sort({ date: -1 }).toArray()
+    let orderDetails = await db.get().collection(collection.ORDER_COLLECTIONS).find().sort({ time: -1 }).toArray()
     console.log(orderDetails);
     res.render('admin/admin_orderbook', { orderDetails, admin: true })
 })

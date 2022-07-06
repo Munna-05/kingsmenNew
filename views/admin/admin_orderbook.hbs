@@ -1,29 +1,36 @@
 <div class="container-fluid text-warning" style="">
- 
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
 <link rel="stylesheet" type="text/js" href="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-  
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">  
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
 
 </div>
 
-<div class="container mt-5 rounded p-2" style=" backdrop-filter: blur(10px);background:rgb(188, 188, 188) ;">
-<table class="container  display border border-dark table text-dark" id="example">
+<div class="container-fluid mt-5  rounded p-2" style=" backdrop-filter: blur(10px);background:rgb(188, 188, 188) ;">
+<table class="container-fluid display border border-dark table text-dark" id="example">
   <thead>
-    <tr>
-      <th scope="col">no.</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Address</th>
-      <th scope="col">Price</th>
-      <th scope="col">Date</th>
-      <th scope="col">Status</th>
-      <th scope="col" class="">Change Status</th>
-      <th scope="col" class=""></th>
-      <th scope="col">Options</th>
+    <tr class="text-center">
+      <th scope="col text-center">no.</th>
+      <th scope="col text-center">Order Id</th>
+      <th scope="col text-center">Name</th>
+      {{!-- <th scope="col">Email</th> --}}
+      <th scope="col text-center">Address</th>
+      <th scope="col text-center">Price</th>
+      <th scope="col text-center">Date</th>
+      <th scope="col text-center">Status</th>
+      <th scope="col text-center">View</th>
+      <th scope="col text-center">Quantity</th>
+      {{#if this.cancelStatus}}
+      <th></th>
+      <th></th>
+      {{else}}
+      <th scope="col text-center" class="">Change Status</th>
+      <th scope="col text-center" class=""></th>
+      <th scope="col text-center">Options</th>
+      {{/if}}
 
     </tr>
   </thead>
@@ -31,13 +38,21 @@
   {{#each orderDetails}}
     <tr class="text-center">
       <th scope="row">{{inc @index}}</th>
+      <th scope="row">{{this._id}}</th>
       <td class="text-capitalize">{{deliveryDetails.name}}</td>
-      <td>{{deliveryDetails.email}}</td>
+      {{!-- <td>{{deliveryDetails.email}}</td> --}}
       <td class="text-capitalize">{{deliveryDetails.address}}</td>
       <td>{{this.amount}}</td>
       <td>{{this.date}}</td>
       <td>{{this.status}}</td>
-      <form action="/admin/statusupdate/{{this._id}}" method="post">
+       <td><a href="/admin/showProducts/{{this._id}}" class="btn brn-outline-dark">View Products</a></td>
+       <td>{{this.products.[0].quantity}}</td>
+      {{#if this.cancelStatus}}
+      <td></td>
+      <td></td>
+      {{else}}
+     
+      <form action="/admin/statusupdate/{{this._id}}" class="text-center" method="post">
         <td>
           <select name="status" class="btn ms-3 btn-outline-dark" id="">
             <option value="Packed">Packed</option>
@@ -45,11 +60,14 @@
             <option value="Delivered">Delivered</option>
           </select>
         </td>
+        
         <td>
           <button type="submit" onclick="alert()" class="btn btn-primary">Update</button>
 
         </td>
+        
       </form>
+      {{/if}} 
       {{#if this.OrderStatus}}
       <td><a href="#" class="btn text-secondary">Cancelled</a></td>
       {{else}}
@@ -57,7 +75,6 @@
       <td>
         {{!-- <a href="/admin/cancelorder/{{this._id}}" class="btn btn-danger">Cancel</a> --}}
         <a class="btn btn-danger" onclick="cancelorder()" href="/admin/cancelorder/{{this._id}}">Cancel</a>
-
 
 
       </td>
@@ -121,7 +138,7 @@
 
 </div>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.flash.min.js"></script>

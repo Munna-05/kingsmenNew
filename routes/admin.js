@@ -14,7 +14,7 @@ var db = require('../config/connection')
 require('dotenv').config()
 
 let user;
-let password=process.env.ADMINPASSWORD
+let password = process.env.ADMINPASSWORD
 
 const verifyAdmin = (req, res, next) => {
     if (req.session.adminLogged == true) {
@@ -61,7 +61,7 @@ router.post('/admin', async (req, res) => {
         let perfumeCount = await db.get().collection(collection.PRODUCT_COLLECTION).find({ productCategory: "perfumes" }).count()
         let suitsCount = await db.get().collection(collection.PRODUCT_COLLECTION).find({ productCategory: "Suits" }).count()
 
-        console.log("______________________________users");
+        console.log("______________________________users");  
         console.log(users);
         console.log("______________________________products");
         console.log(products);
@@ -114,11 +114,11 @@ router.get('/delete/:id', verifyAdmin, (req, res) => {
     userHelper.deleteUser(id)
     res.redirect('/admin/userDetails')
 })
-//..................................................................product section
+
 router.get('/products', verifyAdmin, (req, res) => {
     res.render('admin/admin_viewProducts', { admin: true })
 })
-//...............................................................viewing Products
+
 router.get('/product_list/:category', async (req, res) => {
     const category = req.params.category
     let item = await productHelper.getCategoryItems(category)
@@ -129,14 +129,14 @@ router.get('/add_product', verifyAdmin, (req, res) => {
     res.render('admin/add_product', { admin: true })
 })
 const addproduct = (req, res) => {
-    
-    // console.log(req.body);
+
+
     console.log(req.files);
     console.log(req.files.image)
     let image = req.files.image
     productHelper.addProduct(req.body, ((id) => {
         console.log(id);
-        // image.mv('./public/product-images/' + result + '.jpg')
+
         const files = req.files
         console.log(files);
         if (!files) {
@@ -152,6 +152,7 @@ const addproduct = (req, res) => {
         Promise.all(result).then((msg) => {
 
             res.redirect('/admin/products')
+            // res.send({true})
         })
     }))
 }
@@ -171,8 +172,8 @@ router.get('/orderbook', async (req, res) => {
 router.get('/cancelorder/:id', async (req, res) => {
     let id = req.params.id
     await productHelper.cancelOrder(id)
-    // let orderDetails=req.session.orderDetails
-    // let user=req.session.user
+
+
     res.redirect('/admin/orderbook')
 })
 router.get('/logout', verifyAdmin, (req, res) => {
@@ -201,7 +202,7 @@ router.post('/edit-product/:id', (req, res) => {
 })
 router.post('/statusupdate/:id', (req, res) => {
     console.log(req.params.id);
-    // res.send(req.params.id)
+
     let id = req.params.id
     productHelper.orderStatusUpdate(id, req.body)
 })
@@ -218,5 +219,10 @@ router.post('/addCoupon', verifyAdmin, async (req, res) => {
     await productHelper.addCoupon(req.body)
     req.session.msg = "coupon added successfully"
     res.redirect("/admin/addCoupon")
+})
+router.get('/showProducts/:id',verifyAdmin,async(req,res)=>{
+    let id=req.params.id
+    let details = await productHelper.getorderProducts(id);
+    res.render('admin/admin_orderProducts',{admin:true,details})
 })
 module.exports = router;

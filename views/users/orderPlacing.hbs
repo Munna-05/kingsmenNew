@@ -1,127 +1,154 @@
-
 <div class="bg-dark pt-5 rounded" style="height: 100vh;">
     <div class="div  container">
-    {{#if user}}
+        {{#each cartItems}}
 
-    <div class="row rounded pb-5" style="border:;border-radius: 26px;
+        {{/each}}
+        {{#if user}}
+
+        <div class="row rounded pb-5" style="border:;border-radius: 26px;
 background: #171717;
 box-shadow:  32px 32px 65px #090909,
              -32px -32px 65px #252525;">
-        <div class="col-6  pb-3  pt-5 mt-4 ps-5">
-            <form id="checkout">
-                {{!-- <label for="" class="text-light">Name</label><br> --}}
-                {{!-- <input for="" class="p-2 ms-4  text-capitalize my-2 rounded"
-                    style="color: gold;width: 23.5rem;">{{user.name}}</input><br> --}}
-               <div class="border p-1 ps-3 border-warning" style="width: 25vw;" >
-                 <input type="text" name="name" class="p-2 ms-4  text-capitalize my-2 rounded"
-                    style="color: gold;width: 23.5rem;background: none;border: none;" value="{{user.name}}">
-               </div>
-                {{!-- <label for="" class="text-light">E-mail</label><br> --}}
-                {{!-- <inp for="" class="p-2 ms-4 my-2 rounded"
-                    style="color: gold;width: 23.5rem;text-decoration: underline;">{{user.email}}</label><br> --}}
-                    <br><div class="border p-1 ps-3 border-warning" style="width: 25vw;">
-                        <input type="text" name="email" id="" class="p-2  ms-4 my-2 rounded" style="color: gold;width: 23.5rem;text-decoration: underline;
+            <div class="col-6  pb-3  pt-5 mt-4 ps-5">
+
+                <form id="checkout">
+                    {{!-- <label for="" class="text-light">Name</label><br> --}}
+                    {{!-- <input for="" class="p-2 ms-4  text-capitalize my-2 rounded"
+                        style="color: gold;width: 23.5rem;">{{user.name}}</input><br> --}}
+                    <div class="border p-1 ps-3 border-warning" style="width: 25vw;">
+                        <input type="text" name="name" class="p-2 ms-4  text-capitalize my-2 rounded"
+                            style="color: gold;width: 23.5rem;background: none;border: none;" value="{{user.name}}">
+                    </div>
+                    {{!-- <label for="" class="text-light">E-mail</label><br> --}}
+                    {{!-- <inp for="" class="p-2 ms-4 my-2 rounded"
+                        style="color: gold;width: 23.5rem;text-decoration: underline;">{{user.email}}</label><br> --}}
+                        <br>
+                        <div class="border p-1 ps-3 border-warning" style="width: 25vw;">
+                            <input type="text" name="email" id="" class="p-2  ms-4 my-2 rounded" style="color: gold;width: 23.5rem;text-decoration: underline;
                 border: none;
                 background: none;
                 " value="{{user.email}}">
-                    </div><br>
-                    {{!-- <label for="" class="text-light">Address</label><br>
-                    <input type="text" class="rounded mb-3 p-1" name="address" value="{{this.address}}" name="" id=""
-                        style="height: 4rem;width: 30rem;"><br>
-                    <input type="text" class="rounded mb-3 p-1" name="address2" value="{{this.address2}}" name="" id=""
-                        style="height: 4rem;width: 30rem;"><br> --}}
+                        </div><br>
+                        {{!-- <label for="" class="text-light">Address</label><br>
+                        <input type="text" class="rounded mb-3 p-1" name="address" value="{{this.address}}" name=""
+                            id="" style="height: 4rem;width: 30rem;"><br>
+                        <input type="text" class="rounded mb-3 p-1" name="address2" value="{{this.address2}}" name=""
+                            id="" style="height: 4rem;width: 30rem;"><br> --}}
 
-                    {{!-- <label for="" class="text-light mb-2">Address</label><br> --}}
-                   <div class="border pay p-1 ps-3 border-warning" style="width: 25vw;">
-                     <input type="radio" class="me-3 mt-1" name="address" value="{{user.address}}" id="">
-                    <label for=" " class="text-capitalize p-3 rounded my-2"
-                        style="color: ;width: 23rem;">{{user.address}}</label>
-                   </div><br>
-                    {{!-- <input type="text" class="rounded " style="height: 4rem;width: 30rem;"
-                        value="{{user.address}}">
-                    <br> --}}
-
-
-                    {{!-- <label for="" class="text-light mt-2 mb-2">Second Address</label><br> --}}
-                    <div class="border pay p-1 ps-3 border-warning" style="width: 25vw;">
-                        <input type="radio" class="me-3 text-dark mt-1 " name="address" value="{{user.address2}}" id="">
-                    <label for=" " class="text-capitalize  p-3 my-2 rounded"
-                        style="color: ;width: 23rem;">{{user.address2}}</label>
-                    </div><br>
-                    <div>
-                    <input type="text" class="pay text-center" name="CouponCode" placeholder="Coupon">
-                        
-                    </div>
-
-                    {{!-- <input type="text" class="rounded" style="height: 4rem;width: 30rem;"
-                        value="{{user.address2}}">
-                    --}}
+                        {{!-- <label for="" class="text-light mb-2">Address</label><br> --}}
+                        <div class="border pay p-1 ps-3 border-warning" style="width: 25vw;">
+                            <input type="radio" class="me-3 mt-1" name="address" value="{{user.address}}" id="">
+                            <label for=" " class="text-capitalize p-3 rounded my-2"
+                                style="color: ;width: 23rem;">{{user.address}}</label>
+                        </div><br>
+                        {{!-- <input type="text" class="rounded " style="height: 4rem;width: 30rem;"
+                            value="{{user.address}}">
+                        <br> --}}
 
 
+                        {{!-- <label for="" class="text-light mt-2 mb-2">Second Address</label><br> --}}
+                        <div class="border pay p-1 ps-3 border-warning" style="width: 25vw;">
+                            <input type="radio" class="me-3 text-dark mt-1 " name="address" value="{{user.address2}}"
+                                id="">
+                            <label for=" " class="text-capitalize  p-3 my-2 rounded"
+                                style="color: ;width: 23rem;">{{user.address2}}</label>
+                        </div><br>
+                        <div>
+                            <input type="text" class="pay text-center" name="CouponCode" placeholder="Coupon">
 
-                    <h1 class="text-light"></h1>
+                        </div>
+
+                        {{!-- <input type="text" class="rounded" style="height: 4rem;width: 30rem;"
+                            value="{{user.address2}}">
+                        --}}
 
 
 
-        </div>
-        <div class="col-6 pt-5">
-            <div class="h2 row m-3 text-warning   " value="{{total}}" id="total">TOTAL : {{total}}</div><br>
+                        <h1 class="text-light"></h1>
 
 
-
-            <div class=" border row border-warning rounded p-2 m-3 d-flex justify-content-center" style="
-            
-            ">
-                <span class="text-warning text-uppercase mb-2">Payment method</span><br><br>
-
-                <div class="border col-3 mx-2  justify-content-center rounded p-3 border-warning mb-3" style="height: 15vh;">
-                    <input type="radio" class="mt-3 container border" value="COD" name="paymentMethod" id=""><br> <label
-                        for="" class="tex
-                      p-2 text-center container  text-warning  ">COD</label>
-                </div><br>
-                
-                <div class="border col-3 mx-2 justify-content-center rounded  p-3 border-warning mb-3" style="height: 15vh;">
-                    <input type="radio" class="mt-3 container  border" value="razorpay" name="paymentMethod" id="">
-                    <label for="" class="text-warning container text-center p-2">RazorPay</label>
-                </div><br>
-               
-                <div class="border col-3 mx-2 justify-content-center rounded p-3 border-warning mb-3" style="height: 15vh;">
-                    <input type="radio" value="paypal" class="mt-3 container  border" name="paymentMethod" id=""><label for=""
-                        class="text-warning container text-center p-2">PayPal</label>
-                </div>
-                {{!-- <div id="paypal-payment-button" class="my-3"> --}}
-
-                    <input type="submit" onclick="placed()" placeholder="Place your Order"
-                        class=" rounded pay mb-2 p-2 mt-2 container-fluid " value="Pay Now">
-                     <style>
-                        .pay{
-                            background: none;
-                            border: solid gold 2px;
-                            color: gold;
-                            transform: 0.3s;
-                        }
-                        .pay:hover{
-                            background: gold;
-                            color: black;
-                            font-weight: 600;
-                            transition: 0.3s;
-
-                        }
-                     </style>
-                </div>
-
-                <br>
 
             </div>
+            <div class="col-6 pt-5">
+                <div class="h2 row m-3 text-warning   " value="{{total}}" id="total">TOTAL : {{total}}
+
+                </div><br>
+                <div class="p-2 m-3">
+                    {{!-- <a href="/users/bill" class="order rounded" >View Order details</a> --}}
+
+                </div>
+            <style>
+                .order{
+                    color: grey;
+                    text-decoration: none;
+                    border: solid grey 1px;
+                    padding: 0.5em;
+
+                }
+                .order:hover{
+                    color: gold;
+                    border: solid gold 2px;
+                }
+            </style>
+
+
+                <div class=" border row border-warning rounded p-2 m-3 d-flex justify-content-center" style="
+            
+            ">
+                    <span class="text-warning text-uppercase mb-2">Payment method</span><br><br>
+
+                    <div class="border col-3 mx-2  justify-content-center rounded p-3 border-warning mb-3"
+                        style="height: 15vh;">
+                        <input type="radio" class="mt-3 container border" value="COD" name="paymentMethod" id=""><br>
+                        <label for="" class="tex
+                      p-2 text-center container  text-warning  ">COD</label>
+                    </div><br>
+
+                    <div class="border col-3 mx-2 justify-content-center rounded  p-3 border-warning mb-3"
+                        style="height: 15vh;">
+                        <input type="radio" class="mt-3 container  border" value="razorpay" name="paymentMethod" id="">
+                        <label for="" class="text-warning container text-center p-2">RazorPay</label>
+                    </div><br>
+
+                    <div class="border col-3 mx-2 justify-content-center rounded p-3 border-warning mb-3"
+                        style="height: 15vh;">
+                        <input type="radio" value="paypal" class="mt-3 container  border" name="paymentMethod"
+                            id=""><label for="" class="text-warning container text-center p-2">PayPal</label>
+                    </div>
+                    {{!-- <div id="paypal-payment-button" class="my-3"> --}}
+
+                        <input type="submit" onclick="" placeholder="Place your Order"
+                            class=" rounded pay mb-2 p-2 mt-2 container-fluid " value="Pay Now">
+                        <style>
+                            .pay {
+                                background: none;
+                                border: solid gold 2px;
+                                color: gold;
+                                transform: 0.3s;
+                            }
+
+                            .pay:hover {
+                                background: gold;
+                                color: black;
+                                font-weight: 600;
+                                transition: 0.3s;
+
+                            }
+                        </style>
+                    </div>
+
+                    <br>
+
+                </div>
 
 
 
 
+            </div>
         </div>
-    </div>
-    </form>
+        </form>
 
-</div>
+    </div>
 </div>
 
 
@@ -161,9 +188,8 @@ box-shadow:  32px 32px 65px #090909,
 
 
 <script>
-
-
-    $("#checkout").submit((e) => {
+     $("#checkout").submit((e) => {
+        console.log("ajax")
         e.preventDefault()
         $.ajax({
             url: '/users/order',
@@ -171,16 +197,15 @@ box-shadow:  32px 32px 65px #090909,
             data: $("#checkout").serialize(),
             success: (response) => {
                 if (response.CODsuccess) {
-                    location.href='/users/orderbook'
-                    {{!-- Swal.fire(
-                        'Order Placed!',
-                        'Order succ!',
-                        'success'
-                    ) --}}
-                } else if(response.paypal){
-                    location.href=response.url;
+                    location.href = '/users/ordersuccess'
+                    {
+                        
+                   
+                    }
+                } else if (response.paypal) {
+                    location.href = response.url;
 
-                }else{
+                } else {
                     console.log("sssssss", response)
                     razorpayPayment(response)
 
@@ -190,6 +215,9 @@ box-shadow:  32px 32px 65px #090909,
             }
         })
     })
+
+
+   
     function razorpayPayment(order) {
         console.log("order : ", order)
         var options = {

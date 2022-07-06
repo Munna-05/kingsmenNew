@@ -12,13 +12,13 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link text-light active" aria-current="page" href="#"><img
-                src="https://hyperpix.net/wp-content/uploads/2020/07/kingsman-logo-font-download-856x484.jpg" alt=""
+                {{!-- src="https://hyperpix.net/wp-content/uploads/2020/07/kingsman-logo-font-download-856x484.jpg" alt="" --}}
                 style="width: 9vw;"></a>
 
           </li>
-          <div class="row d-flex justify-content-center container" style="margin-left: 175%;">
+          <div class="row d-flex justify-content-center container" style="margin-left: 165%;">
             <li class="nav-item "  >
-            <a class="nav-link mt-4 ms-4" style="color: gold;font-size: large;
+            <a class="nav-link mt-4 ms-4" style="color: gold;font-size: small;
               position: relative;
               
           " href="/">Home</a>
@@ -46,10 +46,10 @@
           {{#if user}}
           <a href="/users/user-profile" class="btn text-uppercase text-light"
             style="text-decoration: none;color: rgb(255, 255, 255); width: 10rem;border: none;">{{name}}</a>
-          <a href="/users/logout" class="btn btn-outline-danger" style="width: 10rem;">Log out</a>
+          <a href="/users/logout" class="btn btn-outline-danger" style="width: 5rem;">Log out</a>
           {{else}}
-          <button class="btn btn-outline-danger me-2" style="width: 8rem;"><a href="/login"
-              style="text-decoration: none;color: red;">log in</a></button>
+          <button class="btn btn-outline-danger p-0 me-2" style="width: 6rem;height: 2rem;"><a href="/login"
+              style="text-decoration: none;color: red;font-size: 0.8em;">Log in</a></button>
           {{/if}}
         </form>
       </div>

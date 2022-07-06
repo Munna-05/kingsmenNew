@@ -16,7 +16,7 @@ paypal.Buttons({
         return actions.order.capture().then(function (details) {
             console.log(details)
             window.location.replace("http://localhost:63342/tutorial/paypal/success.php")
-        })
+        }) 
     },
     onCancel: function (data) {
         window.location.replace("http://localhost:63342/tutorial/paypal/Oncancel.php")

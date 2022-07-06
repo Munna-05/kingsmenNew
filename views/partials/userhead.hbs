@@ -10,7 +10,7 @@
       </button>
       <li class="nav-item">
         <a class="nav-link text-light active" aria-current="page" href="#"><img
-            src="https://hyperpix.net/wp-content/uploads/2020/07/kingsman-logo-font-download-856x484.jpg" alt=""
+            {{!-- src="https://hyperpix.net/wp-content/uploads/2020/07/kingsman-logo-font-download-856x484.jpg" alt="" --}}
             style="width: 9vw;"></a>
 
       </li>
@@ -40,7 +40,7 @@
 
           <a href="/users/user-profile" class="btn text-uppercase "
             style="text-decoration: none;color: gold; width: 10rem;border: none;">{{user.name}}</a>
-          <a href="/users/logout" class="btn btn-outline-danger" style="width: 10rem;">Log out</a>
+          <a href="/users/logout" class="btn text-danger" style="width: 8rem;height: 2rem;">Log out</a>
           {{else}}
           <button class="btn btn-outline-danger me-2" style="width: 8rem;"><a href="/login"
               style="text-decoration: none;color: red;">log in</a></button>

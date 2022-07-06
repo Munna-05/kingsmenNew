@@ -17,7 +17,7 @@
     {{#each cartItems}}
     <tbody class="text-warning">
         <tr>
-            <th scope="row" class="">{{inc @index}}</th>
+            <th scope="row" class="" style="vertical-align: middle;">{{inc @index}}</th>
 
             <td><img src="/uploads/{{this.product.images.[0].filename}}" alt="" class="" style="width: 5em;"></td>
             <td class="" style="width: 15rem;vertical-align: middle;">{{this.product.productName}}</td>
@@ -35,7 +35,7 @@
 
             {{!-- <td style="font-size: 15px;width: 10em;">INR total /- </td> --}}
 
-            <td style="font-size: 15px;width: 10em;vertical-align: middle;" id="">INR {{this.product.productPrice}} /- </td>
+            <td style="font-size: 15px;width: 10em;vertical-align: middle;" id="">INR {{this.product.productPrice}} /- </td> 
 
 
             <td style="vertical-align: middle;"><button type="button" onclick="sweet()" class="btn btn-danger"><a
@@ -62,7 +62,7 @@
 </table>
 </div>
 
-<div class="text-light mb-2 text-center container p-0">
+<div class="text-light mb-2 text-center container-fluid  p-0">
 
     <span class="text-warning"> Total </span>
     <h1 class="text-center text-warning" id="total">{{total}}</h1>
@@ -71,7 +71,7 @@
 </div>
 
 
-<div class=" container  mb-5 d-flex justify-content-center p-0">
+<div class=" containe-fluidr  mb-5 d-flex justify-content-center p-0">
     <a href="/users/order" class="btn btn-outline-warning d-flex  " style="text-decoration: none;color:gold ;">Proceed
         to
         Checkout</a>
